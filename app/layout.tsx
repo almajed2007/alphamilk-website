@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { WalletContextProvider } from "@/components/wallet/wallet-context-provider"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "AlphaMilk - The Grooviest Meme Token",
@@ -17,6 +18,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZFGHTCDZQ3" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZFGHTCDZQ3');
+          `}
+        </Script>
+      </head>
       <body>
         <WalletContextProvider>{children}</WalletContextProvider>
       </body>

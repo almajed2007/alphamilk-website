@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
+import { TradingSection } from "@/components/trading-section"
+import About from "@/components/about"
 import { Integrations } from "@/components/integrations"
 import { WalletDashboard } from "@/components/wallet-dashboard"
 import { Tokenomics } from "@/components/tokenomics"
@@ -14,6 +15,7 @@ import { AnalyticsDashboard } from "@/components/analytics-dashboard"
 
 // Loading skeletons
 import { HeroSkeleton } from "@/components/loading/hero-skeleton"
+import { PriceChartSkeleton } from "@/components/loading/price-chart-skeleton"
 import { AboutSkeleton } from "@/components/loading/about-skeleton"
 import { TokenomicsSkeleton } from "@/components/loading/tokenomics-skeleton"
 import { RoadmapSkeleton } from "@/components/loading/roadmap-skeleton"
@@ -23,6 +25,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
   const [sectionsLoaded, setSectionsLoaded] = useState({
     hero: false,
+    trading: false,
     about: false,
     integrations: false,
     wallet: false,
@@ -39,48 +42,58 @@ export default function Home() {
         setSectionsLoaded((prev) => ({ ...prev, hero: true }))
       }, 800)
 
+      // Trading section loads after hero
+      setTimeout(() => {
+        setSectionsLoaded((prev) => ({ ...prev, trading: true }))
+      }, 1000)
+
       // About section
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, about: true }))
-      }, 1200)
+      }, 1400)
 
       // Integrations section
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, integrations: true }))
-      }, 1400)
+      }, 1600)
 
       // Wallet section
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, wallet: true }))
-      }, 1600)
+      }, 1800)
 
       // Tokenomics (has chart, takes longer)
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, tokenomics: true }))
-      }, 2000)
+      }, 2200)
 
       // Roadmap
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, roadmap: true }))
-      }, 2400)
+      }, 2600)
 
       // Community (last)
       setTimeout(() => {
         setSectionsLoaded((prev) => ({ ...prev, community: true }))
         setLoading(false)
-      }, 2800)
+      }, 3000)
     }
 
     loadSections()
   }, [])
 
   return (
-    <>
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navigation />
-      <main className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-20">
+      <main>
         {/* Hero Section */}
         <div className={`transition-opacity duration-500 ${sectionsLoaded.hero ? "opacity-100" : "opacity-0"}`}>
           {sectionsLoaded.hero ? <Hero /> : <HeroSkeleton />}
+        </div>
+
+        {/* Trading Section */}
+        <div className={`transition-opacity duration-500 ${sectionsLoaded.trading ? "opacity-100" : "opacity-0"}`}>
+          {sectionsLoaded.trading ? <TradingSection /> : <PriceChartSkeleton />}
         </div>
 
         {/* About Section */}
@@ -133,6 +146,6 @@ export default function Home() {
         {/* Analytics Dashboard */}
         <AnalyticsDashboard />
       </main>
-    </>
+    </div>
   )
 }

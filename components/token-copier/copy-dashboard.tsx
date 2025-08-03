@@ -14,28 +14,24 @@ export function CopyDashboard() {
 
   const features = [
     {
-      icon: <Copy className="h-8 w-8 text-orange-500" />,
+      icon: <Copy className="h-8 w-8 text-teal-400" />,
       title: "2-Click Copying",
       description: "Copy any trending token in just two clicks - no coding required!",
-      color: "from-orange-400 to-red-500",
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-500" />,
+      icon: <Shield className="h-8 w-8 text-teal-400" />,
       title: "Anonymous Copying",
       description: "Create copies without revealing the original token identity.",
-      color: "from-blue-400 to-teal-500",
     },
     {
-      icon: <Zap className="h-8 w-8 text-yellow-500" />,
+      icon: <Zap className="h-8 w-8 text-teal-400" />,
       title: "Instant Deployment",
       description: "Deploy your copied token to Solana blockchain in under 60 seconds.",
-      color: "from-yellow-400 to-orange-500",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-green-500" />,
+      icon: <TrendingUp className="h-8 w-8 text-teal-400" />,
       title: "Market Intelligence",
       description: "Leverage real-time market data to copy the hottest trending tokens.",
-      color: "from-green-400 to-emerald-500",
     },
   ]
 
@@ -74,22 +70,19 @@ export function CopyDashboard() {
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
-            <Card key={index} className="retro-card hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6 text-center">
-                <div
-                  className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center border-4 border-amber-800`}
-                >
-                  {feature.icon}
-                </div>
-                <h3 className="retro-subtitle text-lg font-bold mb-3">{feature.title}</h3>
-                <p className="retro-text text-sm">{feature.description}</p>
-              </CardContent>
-            </Card>
+            <div
+              key={index}
+              className="bg-gray-900 border border-teal-500/30 rounded-2xl p-6 text-center hover:border-teal-500/60 transition-all duration-300 hover:scale-105"
+            >
+              <div className="flex justify-center mb-4">{feature.icon}</div>
+              <h3 className="text-white text-lg font-semibold mb-3">{feature.title}</h3>
+              <p className="text-gray-400 text-sm">{feature.description}</p>
+            </div>
           ))}
         </div>
 
         {/* Navigation Tabs */}
-        <div className="retro-card p-2 mb-8">
+        <div className="retro-card p-2 mb-8 flex justify-center">
           <div className="flex flex-wrap gap-2">
             {[
               { id: "trending", label: "🔥 Trending Tokens", icon: <TrendingUp className="h-4 w-4" /> },
@@ -214,34 +207,6 @@ export function CopyDashboard() {
               </Card>
             </div>
           )}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="retro-card p-8 md:p-12 bg-gradient-to-br from-purple-500 to-pink-500 text-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-4 left-4 text-6xl">🚀</div>
-              <div className="absolute top-4 right-4 text-6xl">💎</div>
-              <div className="absolute bottom-4 left-4 text-6xl">⚡</div>
-              <div className="absolute bottom-4 right-4 text-6xl">🎯</div>
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4 drop-shadow-lg">
-                🎯 Ready to Copy the <span className="retro-neon">HOTTEST</span> Tokens? 🔥
-              </h3>
-              <p className="text-xl mb-6 drop-shadow-lg">
-                Join thousands of traders who are leveraging market trends with our 2-click token copier!
-              </p>
-              {!connected ? (
-                <WalletConnectionButton className="retro-button text-white px-8 py-4 text-lg" />
-              ) : (
-                <Button onClick={() => setActiveTab("trending")} className="retro-button text-white px-8 py-4 text-lg">
-                  🚀 START COPYING NOW
-                </Button>
-              )}
-            </div>
-          </div>
         </div>
       </div>
     </section>

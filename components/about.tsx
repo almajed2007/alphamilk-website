@@ -1,120 +1,104 @@
+import { Zap, Shield, Cpu, Rocket } from "lucide-react"
+
 export function About() {
   const features = [
     {
-      icon: "🚜",
-      title: "Farm-to-Moon",
-      description: "Built by real farmers who know the value of hard work and dedication.",
-      color: "from-orange-400 to-red-500",
+      icon: <Zap className="h-8 w-8 text-[#00d4aa]" />,
+      title: "Lightning Fast",
+      description: "Deploy tokens in under 60 seconds with our advanced AI automation system.",
     },
     {
-      icon: "🥛",
-      title: "Pure Quality",
-      description: "No artificial additives, just pure meme energy straight from the source.",
-      color: "from-blue-400 to-teal-500",
+      icon: <Shield className="h-8 w-8 text-[#00d4aa]" />,
+      title: "Secure by Design",
+      description: "Military-grade security with automated auditing and vulnerability detection.",
     },
     {
-      icon: "📈",
-      title: "Growth Focused",
-      description: "Like our prize-winning bulls, we're focused on sustainable growth.",
-      color: "from-green-400 to-emerald-500",
+      icon: <Cpu className="h-8 w-8 text-[#00d4aa]" />,
+      title: "AI-Powered",
+      description: "Advanced machine learning algorithms optimize every aspect of token creation.",
     },
     {
-      icon: "👥",
-      title: "Strong Community",
-      description: "A brotherhood of farmers, traders, and meme enthusiasts.",
-      color: "from-purple-400 to-pink-500",
+      icon: <Rocket className="h-8 w-8 text-[#00d4aa]" />,
+      title: "Scale Infinitely",
+      description: "Built on Solana's high-performance blockchain for unlimited scalability.",
     },
   ]
 
   return (
-    <section className="py-20 px-4 retro-gradient-bg">
+    <section className="section-darker py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="retro-title text-4xl md:text-5xl font-bold mb-6">About AlphaMilk</h2>
-          <div className="retro-card max-w-4xl mx-auto p-8">
-            <p className="retro-text text-xl leading-relaxed">
-              AlphaMilk isn't just another meme token. We're a <span className="retro-neon font-bold">GROOVY</span>{" "}
-              community of hardworking individuals who believe in the power of dedication, just like the farmers who
-              wake up at dawn to tend their cattle. Our token represents the{" "}
-              <span className="retro-3d-text font-bold">ALPHA MENTALITY</span> of those who work the land! 🌾
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Empower Your Workflow
+            <br />
+            <span className="gradient-text">with AI</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Our AI agents handle the complexity of blockchain development, allowing you to focus on what matters most -
+            building the future of decentralized finance.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="feature-grid">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="retro-card text-center p-6 transform hover:scale-105 transition-all duration-300 hover:rotate-1"
-            >
-              <div
-                className={`w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center text-3xl border-4 border-amber-800 shadow-lg`}
-              >
+            <div key={index} className="modern-card text-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-800 flex items-center justify-center">
                 {feature.icon}
               </div>
-              <h3 className="retro-subtitle text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="retro-text">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+              <p className="text-gray-400">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="retro-card p-8 md:p-12 relative overflow-hidden">
-          {/* Retro Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-4 left-4 text-6xl text-orange-500">🌻</div>
-            <div className="absolute top-8 right-8 text-4xl text-yellow-500">⭐</div>
-            <div className="absolute bottom-4 left-8 text-5xl text-green-500">🌾</div>
-            <div className="absolute bottom-8 right-4 text-4xl text-pink-500">✨</div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+        <div className="mt-20 modern-card-dark">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="retro-title text-3xl font-bold mb-4">The Alpha Farmer's Creed</h3>
-              <div className="bg-gradient-to-r from-yellow-100 to-orange-100 border-4 border-amber-800 rounded-2xl p-6 mb-4">
-                <p className="retro-text text-lg font-bold italic leading-relaxed">
-                  "We rise before the sun, work with our hands, and never back down from a challenge. In the fields and
-                  in the markets, we are the <span className="retro-neon">ALPHA</span>." 🌅
-                </p>
-              </div>
-              <p className="retro-text text-lg">
-                Join thousands of <span className="retro-3d-text font-bold">ALPHA FARMERS</span> who are building the
-                future of decentralized agriculture-themed finance! 🚀
+              <h3 className="text-3xl font-bold text-white mb-6">DEXScreener Evaluation</h3>
+              <p className="text-lg text-gray-300 mb-6">
+                "AlphaMilk ($MILK) has been thoroughly evaluated and verified on DEXScreener, showing strong
+                fundamentals and transparent tokenomics with locked liquidity ensuring investor protection."
               </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
+                  <span className="text-gray-300">Verified contract on Solana</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
+                  <span className="text-gray-300">Liquidity LOCKED for security</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
+                  <span className="text-gray-300">Real-time price tracking</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
+                  <span className="text-gray-300">Transparent trading metrics</span>
+                </div>
+              </div>
             </div>
             <div className="flex justify-center">
-              <div className="relative">
-                <img
-                  src="/images/alphamilk-retro.png"
-                  alt="AlphaMilk Retro Illustration"
-                  className="rounded-2xl shadow-2xl max-w-full h-auto border-6 border-amber-800 retro-glow"
-                />
-                {/* Retro Frame Effect */}
-                <div className="absolute -inset-4 border-4 border-orange-400 rounded-3xl opacity-50"></div>
-                <div className="absolute -inset-8 border-2 border-yellow-400 rounded-3xl opacity-30"></div>
+              <div className="code-block w-full max-w-md">
+                <div className="text-green-400 mb-2">{"// DEXScreener Verification"}</div>
+                <div className="text-blue-400">{"const tokenInfo = {"}</div>
+                <div className="text-white ml-4">{"address: 'BhFiisTfSAwMa...',"}</div>
+                <div className="text-white ml-4">{"status: {"}</div>
+                <div className="text-yellow-400 ml-8">{"verified: true,"}</div>
+                <div className="text-yellow-400 ml-8">{"liquidityLocked: true,"}</div>
+                <div className="text-yellow-400 ml-8">{"safetyScore: 'HIGH'"}</div>
+                <div className="text-white ml-4">{"}"}</div>
+                <div className="text-blue-400">{"});"}</div>
+                <div className="text-gray-500 mt-2">{"// Secure & Verified"}</div>
+                <div className="text-purple-400">{"console.log('LIQUIDITY LOCKED');"}</div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Retro Decorative Bottom */}
-        <div className="mt-12 text-center">
-          <div className="flex justify-center gap-4 text-3xl mb-4">
-            <span className="animate-pulse">🎯</span>
-            <span className="animate-pulse" style={{ animationDelay: "0.5s" }}>
-              🔥
-            </span>
-            <span className="animate-pulse" style={{ animationDelay: "1s" }}>
-              💎
-            </span>
-            <span className="animate-pulse" style={{ animationDelay: "1.5s" }}>
-              🚀
-            </span>
-          </div>
-          <p className="retro-subtitle text-lg font-bold">
-            WELCOME TO THE <span className="retro-neon">RETRO REVOLUTION</span>! 🌈
-          </p>
         </div>
       </div>
     </section>
   )
 }
+
+// Add default export
+export default About

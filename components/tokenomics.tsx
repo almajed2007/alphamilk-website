@@ -1,5 +1,4 @@
 "use client"
-import { ExternalLink } from "lucide-react"
 import { useBannerTracking } from "@/hooks/use-banner-tracking"
 
 export function Tokenomics() {
@@ -106,17 +105,25 @@ export function Tokenomics() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {exchanges.map((exchange, index) => (
                   <div key={index} className="text-center transform hover:scale-105 transition-all duration-300">
-                    <div
-                      className={`retro-card p-4 mb-3 bg-gradient-to-br ${exchange.color} border-4 border-amber-800`}
-                    >
-                      <img
-                        src={exchange.logo || "/placeholder.svg"}
-                        alt={`${exchange.name} logo`}
-                        className="h-8 w-auto mx-auto mb-2 object-contain filter drop-shadow-lg"
-                      />
-                      <h4 className="font-bold text-amber-800 text-sm drop-shadow-lg">{exchange.name}</h4>
+                    <div className="bg-gray-900 border border-teal-500/30 rounded-xl p-6 hover:border-teal-500/60 transition-all duration-300">
+                      <div className="flex justify-center mb-4">
+                        <img
+                          src={exchange.logo || "/placeholder.svg"}
+                          alt={`${exchange.name} logo`}
+                          className="h-12 w-12 object-contain filter brightness-110"
+                        />
+                      </div>
+                      <h4 className="font-bold text-white text-lg mb-2">{exchange.name}</h4>
+                      <p className="text-gray-400 text-sm mb-3">
+                        {exchange.name === "CoinMarketCap" && "Track MILK price and market data"}
+                        {exchange.name === "CoinGecko" && "Comprehensive token analytics"}
+                        {exchange.name === "Binance" && "World's largest crypto exchange"}
+                        {exchange.name === "MEXC" && "Global digital asset trading"}
+                      </p>
+                      <span className="inline-block bg-teal-500/20 text-teal-400 text-xs px-3 py-1 rounded-full font-medium">
+                        {exchange.status}
+                      </span>
                     </div>
-                    <span className="retro-button text-xs px-3 py-1 text-white font-bold">{exchange.status}</span>
                   </div>
                 ))}
               </div>
@@ -126,107 +133,6 @@ export function Tokenomics() {
                   🚀 Major exchange listings coming as we progress through our{" "}
                   <span className="retro-neon font-bold">GROOVY</span> roadmap phases! ✨
                 </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Token Information */}
-          <div className="space-y-6">
-            <div className="retro-card p-6">
-              <h3 className="retro-title text-2xl font-bold text-center mb-6">
-                Token Information <span className="text-3xl">📊</span>
-              </h3>
-              <div className="space-y-4">
-                {tokenInfo.map((info, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center py-3 px-4 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-xl border-3 border-amber-600 hover:from-orange-100 hover:to-pink-100 transition-all duration-300"
-                  >
-                    <span className="retro-text font-bold flex items-center gap-2">
-                      <span className="text-xl">{info.icon}</span>
-                      {info.label}:
-                    </span>
-                    <span className="retro-3d-text font-bold text-right">{info.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Fair Launch Promise */}
-            <div className="retro-card p-6 bg-gradient-to-br from-green-400 to-teal-500 text-amber-800 relative overflow-hidden">
-              {/* Background Elements */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-2 left-2 text-6xl">🐄</div>
-                <div className="absolute bottom-2 right-2 text-6xl">🌾</div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl">🚜</div>
-              </div>
-
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-4 text-center drop-shadow-lg">
-                  🐄 <span className="retro-neon">FAIR LAUNCH</span> Promise! 🌈
-                </h3>
-                <p className="text-lg mb-4 text-center drop-shadow-lg">
-                  60% fair launch allocation ensures maximum community ownership from day one. No private sales, no VC
-                  dumps - just <span className="font-bold text-yellow-300">HONEST FARMING</span>! 🌱
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 text-sm">
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <span className="text-yellow-300">🎯</span>
-                      Marketing funds used for community growth
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-yellow-300">🔒</span>
-                      No hidden allocations or backdoors
-                    </li>
-                  </ul>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <span className="text-yellow-300">💰</span>
-                      2% tax supports ecosystem development
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-yellow-300">⚡</span>
-                      Built on Solana for fast, low-cost transactions
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Highlights */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="retro-card p-6 text-center bg-gradient-to-br from-yellow-400 to-orange-500 text-white">
-                <div className="text-4xl font-bold drop-shadow-lg">60%</div>
-                <div className="text-lg font-bold drop-shadow-lg">Fair Launch 🎯</div>
-              </div>
-              <div className="retro-card p-6 text-center bg-gradient-to-br from-blue-400 to-teal-500 text-white">
-                <div className="text-4xl font-bold drop-shadow-lg">20%</div>
-                <div className="text-lg font-bold drop-shadow-lg">Liquidity Reserve 💧</div>
-              </div>
-            </div>
-
-            {/* Additional Solana Links */}
-            <div className="retro-card p-6">
-              <h3 className="retro-subtitle text-lg font-bold text-center mb-4">
-                Explore on <span className="retro-neon">SOLANA</span> 🌐
-              </h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  { name: "Solscan", url: "https://solscan.io", icon: "🔍" },
-                  { name: "Solana Beach", url: "https://solanabeach.io", icon: "🏖️" },
-                  { name: "Step Finance", url: "https://step.finance", icon: "👣" },
-                ].map((link, index) => (
-                  <button
-                    key={index}
-                    className="retro-button text-white px-4 py-2 text-sm flex items-center gap-2"
-                    onClick={() => window.open(link.url, "_blank")}
-                  >
-                    <span>{link.icon}</span>
-                    {link.name}
-                    <ExternalLink className="h-3 w-3" />
-                  </button>
-                ))}
               </div>
             </div>
           </div>
@@ -260,35 +166,6 @@ export function Tokenomics() {
                   📈 JOIN COMMUNITY
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="retro-card p-8 md:p-12 bg-gradient-to-br from-yellow-400 to-orange-500 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-4 left-4 text-6xl">🚜</div>
-              <div className="absolute top-4 right-4 text-6xl">🌾</div>
-              <div className="absolute bottom-4 left-4 text-6xl">🐄</div>
-              <div className="absolute bottom-4 right-4 text-6xl">🥛</div>
-            </div>
-
-            <div className="relative z-10 text-amber-800">
-              <h3 className="text-3xl font-bold mb-4 drop-shadow-lg">
-                🚜 Built <span className="retro-neon">DIFFERENT</span>! ✨
-              </h3>
-              <p className="text-xl mb-6 drop-shadow-lg">
-                While other projects allocate huge percentages to teams and VCs, AlphaMilk puts the community first with
-                a massive <span className="font-bold text-yellow-200">60% FAIR LAUNCH</span> allocation! 🎯
-              </p>
-              <p className="text-lg font-bold drop-shadow-lg">
-                "A <span className="retro-neon">GROOVY</span> harvest requires{" "}
-                <span className="retro-neon">GROOVY</span> seeds." 🌱
-                <br />
-                <span className="text-base">- Alpha Farmer Philosophy</span>
-              </p>
             </div>
           </div>
         </div>

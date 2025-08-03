@@ -1,35 +1,39 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { MessageCircle, Send, Twitter, Users } from "lucide-react"
+import { MessageCircle, Send, Users } from "lucide-react"
 
 export function Community() {
   const socialLinks = [
     {
       name: "Telegram",
       icon: <Send className="h-8 w-8" />,
-      members: "12,500+",
+      members: "",
       description: "Join our main community chat",
       color: "bg-blue-500 hover:bg-blue-600",
+      url: "https://t.me/alphamilkcoin",
     },
     {
-      name: "Twitter",
-      icon: <Twitter className="h-8 w-8" />,
-      members: "8,200+",
+      name: "X",
+      icon: <img src="/images/x-logo-circle.png" alt="X Logo" className="h-8 w-8 rounded-full" />,
+      members: "",
       description: "Follow for latest updates",
-      color: "bg-sky-500 hover:bg-sky-600",
+      color: "bg-gray-800 hover:bg-gray-700",
+      url: "https://x.com/AlphaM38043",
     },
     {
       name: "Discord",
       icon: <MessageCircle className="h-8 w-8" />,
-      members: "5,800+",
-      description: "Chat with fellow farmers",
+      members: "",
+      description: "Coming Soon",
       color: "bg-indigo-500 hover:bg-indigo-600",
     },
     {
       name: "Reddit",
       icon: <Users className="h-8 w-8" />,
-      members: "3,400+",
-      description: "Share memes and discussions",
+      members: "",
+      description: "Coming Soon",
       color: "bg-orange-500 hover:bg-orange-600",
     },
   ]
@@ -47,7 +51,11 @@ export function Community() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {socialLinks.map((social, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <Card
+              key={index}
+              className={`hover:shadow-lg transition-shadow cursor-pointer ${social.url ? "clickable" : ""}`}
+              onClick={() => social.url && window.open(social.url, "_blank")}
+            >
               <CardContent className="p-6 text-center">
                 <div
                   className={`${social.color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4`}
@@ -55,9 +63,17 @@ export function Community() {
                   {social.icon}
                 </div>
                 <h3 className="text-xl font-bold text-green-800 mb-2">{social.name}</h3>
-                <p className="text-2xl font-bold text-green-600 mb-2">{social.members}</p>
+                {social.members && <p className="text-2xl font-bold text-green-600 mb-2">{social.members}</p>}
                 <p className="text-gray-600 mb-4">{social.description}</p>
-                <Button className={`w-full ${social.color} text-white border-0`}>Join Now</Button>
+                <Button
+                  className={`w-full ${social.color} text-white border-0`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    social.url && window.open(social.url, "_blank")
+                  }}
+                >
+                  {social.name === "Discord" || social.name === "Reddit" ? "Coming Soon" : "Join Now"}
+                </Button>
               </CardContent>
             </Card>
           ))}

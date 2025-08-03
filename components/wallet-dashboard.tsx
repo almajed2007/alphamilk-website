@@ -55,7 +55,7 @@ export function WalletDashboard() {
               {/* Trading Card */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-gray-900">
                     <TrendingUp className="h-5 w-5 text-green-600" />
                     Trading
                   </CardTitle>
@@ -93,7 +93,7 @@ export function WalletDashboard() {
               {/* Analytics Card */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-gray-900">
                     <Users className="h-5 w-5 text-purple-600" />
                     Analytics
                   </CardTitle>
@@ -132,7 +132,7 @@ export function WalletDashboard() {
               {/* Staking Card (Future Feature) */}
               <Card className="hover:shadow-lg transition-shadow opacity-75">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-gray-900">
                     <Coins className="h-5 w-5 text-yellow-600" />
                     Staking (Coming Soon)
                   </CardTitle>
@@ -150,7 +150,7 @@ export function WalletDashboard() {
               {/* NFT Card (Future Feature) */}
               <Card className="hover:shadow-lg transition-shadow opacity-75">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                  <CardTitle className="flex items-center gap-2 text-gray-800">
                     <span className="text-xl">🖼️</span>
                     AlphaMilker NFTs
                   </CardTitle>
