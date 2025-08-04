@@ -7,6 +7,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Wallet, Coins, ExternalLink, RefreshCw } from "lucide-react"
 
+// Validation utility and constants
+const validateSolanaAddress = (address: string): boolean => {
+  const base58Regex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/
+  return base58Regex.test(address)
+}
+
+// AlphaMilk token mint address with validation
+const MILK_TOKEN_MINT = "FtcFnPQtjmCQATjByrp7GXBuDTy1ALQQDUCkUYDmMiLK"
+
+// Validate the contract address on component load
+if (!validateSolanaAddress(MILK_TOKEN_MINT)) {
+  console.error("Invalid MILK token mint address format:", MILK_TOKEN_MINT)
+}
+
 interface TokenBalance {
   mint: string
   amount: number
@@ -21,9 +35,6 @@ export function WalletInfo() {
   const [milkBalance, setMilkBalance] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
   const [mounted, setMounted] = useState(false)
-
-  // AlphaMilk token mint address
-  const MILK_TOKEN_MINT = "BhFiisTfSAwMaFLjBem26Y82rrxmnqd78HtQDFQnVNxD"
 
   useEffect(() => {
     setMounted(true)
@@ -136,7 +147,13 @@ export function WalletInfo() {
             variant="outline"
             size="sm"
             className="flex-1 border-purple-300 text-purple-700 hover:bg-purple-50 bg-transparent"
-            onClick={() => window.open(`https://jup.ag/tokens/${MILK_TOKEN_MINT}`, "_blank")}
+            onClick={() => {
+              if (!validateSolanaAddress(MILK_TOKEN_MINT)) {
+                alert("Invalid token address. Please contact support.")
+                return
+              }
+              window.open(`https://jup.ag/tokens/${MILK_TOKEN_MINT}`, "_blank")
+            }}
           >
             Buy MILK
           </Button>
@@ -144,7 +161,13 @@ export function WalletInfo() {
             variant="outline"
             size="sm"
             className="flex-1 border-green-300 text-green-700 hover:bg-green-50 bg-transparent"
-            onClick={() => window.open(`https://dexscreener.com/solana/${MILK_TOKEN_MINT}`, "_blank")}
+            onClick={() => {
+              if (!validateSolanaAddress(MILK_TOKEN_MINT)) {
+                alert("Invalid token address. Please contact support.")
+                return
+              }
+              window.open(`https://dexscreener.com/solana/${MILK_TOKEN_MINT}`, "_blank")
+            }}
           >
             View Chart
           </Button>

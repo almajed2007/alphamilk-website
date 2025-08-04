@@ -1,8 +1,19 @@
 "use client"
 import { useBannerTracking } from "@/hooks/use-banner-tracking"
 
+const validateSolanaAddress = (address: string): boolean => {
+  const base58Regex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/
+  return base58Regex.test(address)
+}
+
 export function Tokenomics() {
-  const contractAddress = "BhFiisTfSAwMaFLjBem26Y82rrxmnqd78HtQDFQnVNxD"
+  const contractAddress = "FtcFnPQtjmCQATjByrp7GXBuDTy1ALQQDUCkUYDmMiLK" // Updated contract address
+
+  // Validate contract address on component load
+  if (!validateSolanaAddress(contractAddress)) {
+    console.error("Invalid contract address format:", contractAddress)
+  }
+
   const solanaExplorerUrl = `https://explorer.solana.com/address/${contractAddress}`
 
   // Banner tracking setup
@@ -14,7 +25,13 @@ export function Tokenomics() {
   })
 
   const copyToClipboard = () => {
+    if (!validateSolanaAddress(contractAddress)) {
+      alert("Invalid contract address format. Please contact support.")
+      return
+    }
     navigator.clipboard.writeText(contractAddress)
+    // Optional: Show success feedback
+    alert("Contract address copied to clipboard!")
   }
 
   const tokenInfo = [

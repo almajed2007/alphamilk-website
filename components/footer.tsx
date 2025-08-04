@@ -35,7 +35,7 @@ export function Footer() {
                   variant="outline"
                   className="border-green-600 text-green-200 hover:bg-green-700 bg-transparent"
                   onClick={() =>
-                    window.open("https://dexscreener.com/solana/8blrdqtb4n2j4bygeaskdrng84nxbskwclhfbpsv89ie", "_blank")
+                    window.open("https://dexscreener.com/solana/f3skfwjdfz9iatru1yca6pp2oqpywkk6fc4bncjq2xry", "_blank")
                   }
                 >
                   Buy $MILK
@@ -44,7 +44,7 @@ export function Footer() {
                   variant="outline"
                   className="border-green-600 text-green-200 hover:bg-green-700 bg-transparent"
                   onClick={() =>
-                    window.open("https://dexscreener.com/solana/8blrdqtb4n2j4bygeaskdrng84nxbskwclhfbpsv89ie", "_blank")
+                    window.open("https://dexscreener.com/solana/f3skfwjdfz9iatru1yca6pp2oqpywkk6fc4bncjq2xry", "_blank")
                   }
                 >
                   Chart
