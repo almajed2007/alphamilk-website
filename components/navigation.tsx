@@ -10,7 +10,7 @@ const validateSolanaAddress = (address: string): boolean => {
   return base58Regex.test(address)
 }
 
-const CONTRACT_ADDRESS = "FtcFnPQtjmCQATjByrp7GXBuDTy1ALQQDUCkUYDmMiLK"
+const CONTRACT_ADDRESS = "f3skfwjdfz9iatru1yca6pp2oqpywkk6fc4bncjq2xry"
 
 // Validate contract address
 if (!validateSolanaAddress(CONTRACT_ADDRESS)) {
@@ -32,13 +32,13 @@ export function Navigation() {
     )
   }
 
-  const handleJupiterClick = () => {
+  const handleDexScreenerClick = () => {
     if (!validateSolanaAddress(CONTRACT_ADDRESS)) {
       alert("Invalid token address. Please contact support.")
       return
     }
-    trackNavConversion("jupiter")
-    window.open(`https://jup.ag/tokens/${CONTRACT_ADDRESS}`, "_blank")
+    trackNavConversion("dexscreener")
+    window.open(`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`, "_blank")
   }
 
   const handleCopyAddress = () => {
@@ -94,7 +94,7 @@ export function Navigation() {
             >
               Community
             </button>
-            <Button onClick={handleJupiterClick} className="bg-green-600 hover:bg-green-700">
+            <Button onClick={handleDexScreenerClick} className="bg-green-600 hover:bg-green-700">
               Buy $MILK
             </Button>
           </div>
@@ -133,7 +133,7 @@ export function Navigation() {
               >
                 Community
               </button>
-              <Button onClick={handleJupiterClick} className="w-full bg-green-600 hover:bg-green-700">
+              <Button onClick={handleDexScreenerClick} className="w-full bg-green-600 hover:bg-green-700">
                 Buy $MILK
               </Button>
             </div>
